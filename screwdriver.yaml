@@ -7,15 +7,15 @@ jobs:
     requires: [~commit]
   job2:
     requires: [job1]
-  job3:
+  job30:
     requires: [job1]
   job4:
-    requires: [job2, job3]
+    requires: [job2, job30]
 stages:
   starfish:
     jobs: [job1, job4]
     description: "starfish deploy jobs"
   seahorse:
-    jobs: [job2, job3]
+    jobs: [job2, job30]
     description: "seahorse deploy jobs"
     color: '#00FFFF'
