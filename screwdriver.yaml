@@ -5,17 +5,17 @@ shared:
 jobs:
   job1:
     requires: [~commit]
-  job200:
+  job2000:
     requires: [job1]
   job3:
     requires: [job1]
   job4:
-    requires: [job200, job3]
+    requires: [job2000, job3]
 stages:
   starfish:
     jobs: [job1, job4]
     description: "starfish deploy jobs"
   seahorse:
-    jobs: [job200, job3]
+    jobs: [job2000, job3]
     description: "seahorse deploy jobs"
     color: '#00FFFF'
