@@ -3,17 +3,17 @@ shared:
   steps:
     - echo: echo hi
 jobs:
-  job10:
+  job1:
     requires: [~commit]
   job2:
-    requires: [job10]
+    requires: [job1]
   job3:
-    requires: [job10]
+    requires: [job1]
   job4:
     requires: [job2, job3]
 stages:
   starfish:
-    jobs: [job10, job4]
+    jobs: [job1, job4]
     description: "starfish deploy jobs"
   seahorse:
     jobs: [job2, job3]
