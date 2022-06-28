@@ -9,11 +9,11 @@ jobs:
     requires: [job1]
   job3:
     requires: [job1]
-  job4:
+  job40:
     requires: [job2, job3]
 stages:
   starfish:
-    jobs: [job1, job4]
+    jobs: [job1, job40]
     description: "starfish deploy jobs"
   seahorse:
     jobs: [job2, job3]
