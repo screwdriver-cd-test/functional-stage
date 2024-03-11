@@ -1,21 +1,20 @@
 shared:
-  image: node:16
+  image: node:20
   steps:
     - echo: echo hi
 jobs:
-  job1:
-    requires: [~commit]
-  job2000:
-    requires: [job1]
-  job3:
-    requires: [job1]
-  job4:
-    requires: [job2000, job3]
+  hub:
+    requires: [~commit, ~pr]
+  a:
+    requires: []
+  b:
+    requires: [~a]
+  c:
+    requires: [~b]
+  target:
+    requires: [~stage@simple_fail]
 stages:
-  starfish:
-    jobs: [job1, job4]
-    description: "starfish deploy jobs"
-  seahorse:
-    jobs: [job2000, job3]
-    description: "seahorse deploy jobs"
-    color: '#00FFFF'
+  simple_fail:
+    requires: [~hub]
+    jobs: [a, b, c]
+    description: First stage
