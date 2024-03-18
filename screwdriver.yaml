@@ -12,9 +12,9 @@ jobs:
   c:
     requires: [~b]
   target:
-    requires: [~stage@incomplete_fail]
+    requires: [~stage@simple_success]
 stages:
-  simple_fail:
+  simple_success:
     requires: [~hub]
     jobs: [a, b, c]
     description: First stage
