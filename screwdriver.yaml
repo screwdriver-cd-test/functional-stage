@@ -14,7 +14,7 @@ jobs:
   target:
     requires: [~stage@incomplete_fail]
 stages:
-  simple_fail:
+  incomplete_fail:
     requires: [~hub]
     jobs: [a, b, c]
     description: First stage
