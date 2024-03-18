@@ -12,7 +12,7 @@ jobs:
   c:
     requires: [~b]
   target:
-    requires: [~stage@simple_fail]
+    requires: [~stage@incomplete_fail]
 stages:
   simple_fail:
     requires: [~hub]
