@@ -9,6 +9,8 @@ jobs:
     requires: []
   b:
     requires: [~a]
+    steps:
+    - echo: exit 1;
   c:
     requires: [~b]
   target:
