@@ -11,6 +11,8 @@ jobs:
     requires: [~a]
   c:
     requires: [~b]
+    steps:
+    - echo: exit 1;
   target:
     requires: [~stage@simple_fail]
 stages:
