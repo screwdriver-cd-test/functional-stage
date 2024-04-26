@@ -12,17 +12,17 @@ jobs:
   c:
     requires: [~b]
   target:
-    requires: [~stage@setup_fail]
+    requires: [~stage@teardown_fail]
 stages:
-  setup_fail:
+  teardown_fail:
     requires: [~hub]
     jobs: [a, b, c]
     description: First stage
     setup:
       image: node:20
       steps:
-        - init: exit 1
+        - init: echo 'prod teardown'
     teardown:
       image: node:20
       steps:
-        - init: echo 'prod teardown'
+        - init: exit 1
