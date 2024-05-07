@@ -25,5 +25,5 @@ stages:
     teardown:
       image: node:20
       steps:
-        - sleep: sleep 30s
+        - sleep: sleep 15s
         - init: exit 1
