@@ -15,6 +15,8 @@ jobs:
     requires: [~c]
   target:
     requires: [~stage@simple_success2]
+  join-target:
+    requires: [stage@simple_success1, stage@simple_success2]
 stages:
   simple_success1:
     requires: [~hub]
