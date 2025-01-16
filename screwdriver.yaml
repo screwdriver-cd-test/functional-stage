@@ -5,6 +5,8 @@ shared:
 jobs:
   hub:
     requires: [~commit, ~pr]
+    annotations:
+      screwdriver.cd/virtualJob: true
   a:
     requires: []
   b:
@@ -13,6 +15,8 @@ jobs:
     requires: [~b]
   target:
     requires: [~stage@simple_success]
+    annotations:
+      screwdriver.cd/virtualJob: true
 stages:
   simple_success:
     requires: [~hub]
