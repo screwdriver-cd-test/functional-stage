@@ -1,21 +1,27 @@
 shared:
-  image: node:16
+  image: node:20
   steps:
-    - echo: echo hi
+    - hello: echo 'world'
+  annotations:
+    screwdriver.cd/virtualJob: true
+
 jobs:
-  job1:
-    requires: [~commit]
-  job2000:
-    requires: [job1]
-  job3:
-    requires: [job1]
-  job4:
-    requires: [job2000, job3]
+  main:
+    requires: [ ~pr ]
+  a:
+    requires: []
+  b:
+    requires: []
+  c:
+    requires: [a]
+  d:
+    requires: [ main ]
+  e:
+    requires: [ stage@simple:setup ]
+  f:
+    requires: [ stage@simple ]
+
 stages:
-  starfish:
-    jobs: [job1, job4]
-    description: "starfish deploy jobs"
-  seahorse:
-    jobs: [job2000, job3]
-    description: "seahorse deploy jobs"
-    color: '#00FFFF'
+  simple:
+    requires: [ ~pr ]
+    jobs: [a, b, c]
