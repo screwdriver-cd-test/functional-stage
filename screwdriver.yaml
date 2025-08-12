@@ -10,6 +10,8 @@ jobs:
     requires: [ ~pr ]
   a:
     requires: []
+    annotations:
+      screwdriver.cd/virtualJob: false
   b:
     requires: []
   c:
